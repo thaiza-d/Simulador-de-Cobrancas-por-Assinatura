@@ -1,0 +1,11 @@
+venv 
+pycache 
+.pytest_cache
+.env 
+*.log
+*.sqlite
+.DS_Store / Thumbs.db 
+dist / build 
+*.pyc 
+test.db
+
