@@ -42,10 +42,10 @@ jobs:
 
           - name: Configurar variáveis de ambiente
             run: |
-              echo "DB_HOST=localhost" >> $GITHUB_ENV
-              echo "DB_PORT=5432" >> $GITHUB_ENV
               echo "DB_USER=postgres" >> $GITHUB_ENV
               echo "DB_PASSWORD=postgres" >> $GITHUB_ENV
+              echo "DB_HOST=localhost" >> $GITHUB_ENV
+              echo "DB_PORT=5432" >> $GITHUB_ENV
               echo "DB_NAME=simulador_cobrancas" >> $GITHUB_ENV
       
             
