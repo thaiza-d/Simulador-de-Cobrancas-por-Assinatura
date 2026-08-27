@@ -38,7 +38,10 @@ jobs:
           echo "DB_PASSWORD=postgres" >> $GITHUB_ENV
           echo "DB_HOST=localhost" >> $GITHUB_ENV
           echo "DB_PORT=5432" >> $GITHUB_ENV
-          echo "DB_NAME=simulador_cobrancas" >> $GITHUB_ENV
+          echo "DB_NAME=simulador_cobrancas" >> $GITHUB_ENV  
+      - name: Configurar variáveis de ambiente
+        run: |
+          echo "ACCESS_TOKEN_EXPIRE_MINUTES=30" >> $GITHUB_ENV
       - run: pytest
 
   test-cobrancas:
