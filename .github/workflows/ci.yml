@@ -33,14 +33,15 @@ jobs:
       - run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-      - run: |
+      - name: Run tests
+        env:
           DB_USER: postgres
           DB_PASSWORD: postgres
           DB_HOST: localhost
           DB_PORT: 5432
           DB_NAME: simulador_cobrancas
           ACCESS_TOKEN_EXPIRE_MINUTES: 30
-      - run: pytest
+        run: pytest
 
   test-cobrancas:
     runs-on: ubuntu-latest
@@ -50,7 +51,7 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: cobrancas_test
+          POSTGRES_DB: simulador_cobrancas
         ports:
           - 5432:5432
         options: >-
@@ -67,6 +68,7 @@ jobs:
       - run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+      - name: Run tests
         env:
           DB_USER: postgres
           DB_PASSWORD: postgres
@@ -74,4 +76,4 @@ jobs:
           DB_PORT: 5432
           DB_NAME: cobrancas_test
           ACCESS_TOKEN_EXPIRE_MINUTES: 30
-      - run: pytest
+        run: pytest
